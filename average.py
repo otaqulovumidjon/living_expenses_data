@@ -1,5 +1,4 @@
 import json
-
 def average_expenses(file_path: str) -> float:
     """
     get average expenses from json file
@@ -10,9 +9,14 @@ def average_expenses(file_path: str) -> float:
     Returns:
         float: average expenses
     """
-    pass
+    js = 0
+    cs = 0
+    f = open(file_path)
+    ls = json.load(f)
+    ls = ls.values()
+    for i in ls:
+        js += i
+        cs += 1
+    return js/cs
 
-# test
-file_path = "data.json"
-average = average_expenses(file_path)
-print(average)
+print(average_expenses("data.json"))
